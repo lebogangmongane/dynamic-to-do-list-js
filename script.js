@@ -6,18 +6,18 @@ document.addEventListener('DOMContentLoaded', () => {
     loadTasks();
 
     addButton.addEventListener('click', () => {
-        addTask(taskInput.value);
+        addTask(taskInput.value.trim());  // Ensure task input is trimmed
     });
 
     taskInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
-            addTask(taskInput.value);
+            addTask(taskInput.value.trim());  // Ensure task input is trimmed
         }
     });
 });
 
 function addTask(taskText, save = true) {
-    if (taskText.trim() === "") {
+    if (taskText.trim() === "") {  // Ensure task is not empty after trimming
         alert("Please enter a task");
         return;
     }
